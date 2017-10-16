@@ -11,8 +11,9 @@
 	/* @ngInject */
 	function StateChangeConfig($transitions, $cookies) {
 		$transitions.onStart({ to: 'home' }, trans => {
+			/*jslint curly: false, boss: true*/
 			const loggedUserObject = $cookies.getObject('currentUser');
-			if (!loggedUserObject) return trans.router.stateService.target('login')
+			if (!loggedUserObject) return trans.router.stateService.target('login');
 		});
 	}
 
