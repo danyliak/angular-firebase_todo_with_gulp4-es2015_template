@@ -1,0 +1,49 @@
+.navbar-default
+  display: flex
+  align-items: center
+  border: none
+  border-radius: 0
+  margin-bottom: 0
+  .navbar-brand
+    height: auto
+  .navbar-collapse
+    margin-left: auto
+  a.active-state
+    color: orange !important
+.navbar-brand
+  padding: 0
+  img
+    max-width: 120px
+
+.navbar-form
+  .form-group
+    position: relative
+  ul.search-result
+    position: absolute
+    background-color: #fff
+    z-index: 3
+    box-shadow: 1px 4px 3px 3px #ccc
+    right: 0
+    min-width: 500px
+    display: none
+    list-style-type: none
+    padding: 10px
+    li
+      border-bottom: 1px solid #ccc
+      padding: 10px 0
+      &:last-child
+        border-bottom: none
+        padding: 0
+      &.error-search
+        font-size: 12px
+        color: #777
+    .img-thumb
+      height: 60px
+      display: block
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center center
+    h5
+      margin: 0
+    .date
+      font-size: 12px

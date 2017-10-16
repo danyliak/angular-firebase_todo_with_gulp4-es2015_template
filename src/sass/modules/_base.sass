@@ -1,0 +1,117 @@
+html
+  height: 100%
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.6
+  font-family: 'RobotoRegular', sans-serif
+  overflow-x: hidden
+  display: flex
+  flex-direction: column
+  height: 100%
+
+i
+  display: inline-block
+  
+header
+  background-color: #f8f8f8
+main
+  margin: 20px 0
+  flex: 1 0 auto
+
+
+
+a
+  &.color-hover
+    text-decoration: none !important
+    transition: all .25s ease
+    &:hover
+      color: orange
+  &.view-more
+    text-decoration: underline
+    color: red
+    font-size: 12px
+
+.animate-fadeIn
+  &.ng-move, &.ng-enter, &.ng-leave
+    transition: all 2s ease
+  &.ng-leave.ng-leave-active, &.ng-move, &.ng-enter
+    opacity: 0
+  &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active
+    opacity: 1
+
+.animate-fadeIn-password
+  &.ng-move, &.ng-enter, &.ng-leave
+    transition: all .25s ease
+  &.ng-leave.ng-leave-active, &.ng-move, &.ng-enter
+    opacity: 0
+  &.ng-leave, &.ng-move.ng-move-active, &.ng-enter.ng-enter-active
+    opacity: 1
+
+.modal-header .close
+  position: absolute
+  right: 15px
+  top: 15px
+  outline: none
+.help-block
+  font-size: 12px
+  color: red
+
+// preloader
+.preloader
+  position: relative
+  width: 234px
+  height: 28px
+  margin: 15px auto
+  .fountainG
+    position: absolute
+    top: 0
+    background-color: rgb(0,0,0)
+    width: 28px
+    height: 28px
+    animation-name: bounce_fountainG
+    animation-duration: 0.455s
+    animation-iteration-count: infinite
+    animation-direction: normal
+    transform: scale(.3)
+    border-radius: 19px
+    &#fountainG_1
+      left: 0
+      animation-delay: 0.186s
+    &#fountainG_2
+      left: 29px
+      animation-delay: 0.2225s
+    &#fountainG_3
+      left: 58px
+      animation-delay: 0.269s
+    &#fountainG_4
+      left: 88px
+      animation-delay: 0.3155s
+    &#fountainG_5
+      left: 117px
+      animation-delay: 0.362s
+    &#fountainG_6
+      left: 146px
+      animation-delay: 0.4085s
+    &#fountainG_7
+      left: 175px
+      animation-delay: 0.455s
+    &#fountainG_8
+      left: 205px
+      animation-delay: 0.5015s
+
+@keyframes bounce_fountainG
+  0%
+    transform: scale(1)
+    background-color: rgb(0,0,0)
+  100%
+    transform: scale(.3)
+    background-color: rgb(255,255,255)
+
+
+
+footer
+  background-color: #f8f8f8
+  padding: 20px 0
+  flex: 0 0 auto

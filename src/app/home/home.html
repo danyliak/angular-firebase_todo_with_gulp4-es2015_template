@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well">
+                <h2 class="todo-header">TODO List</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="input-group" ng-class="{'has-error': vm.errorName}">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Add new todo"
+                            ng-model="vm.newTodoName"
+                            ng-keydown="vm.errorName = null"
+                        >
+                        <span class="input-group-btn">
+                            <button
+                                class="btn btn-primary"
+                                type="button"
+                                ng-click="vm.addToDo()"
+                            >
+                                Add to list
+                            </button>
+                        </span>
+                    </div>
+                    <p class="error-message" ng-if="vm.errorName">Enter todo name</p>
+                </div>
+            </div>
+
+            <div ng-if="vm.loading" class="preloader">
+                <div id="fountainG_1" class="fountainG"></div>
+                <div id="fountainG_2" class="fountainG"></div>
+                <div id="fountainG_3" class="fountainG"></div>
+                <div id="fountainG_4" class="fountainG"></div>
+                <div id="fountainG_5" class="fountainG"></div>
+                <div id="fountainG_6" class="fountainG"></div>
+                <div id="fountainG_7" class="fountainG"></div>
+                <div id="fountainG_8" class="fountainG"></div>
+            </div>
+
+            <div ng-if="!vm.loading">
+                <div class="todo-stat">
+                    <div class="todo-filters">
+                        <span>Total: <strong>{{filteredTodo.length}}</strong></span>
+                        <span>Done: <strong>{{(filteredTodo | filter: !todo.done).length}}</strong></span>
+                        <span ng-if="vm.searchFilter">Filtered by name: <em>{{vm.searchFilter}}</em></span>
+                    </div>
+                    <div class="todo-search">
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Search todos..."
+                                ng-model="vm.searchFilter"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="list-group todo-list">
+                    <li
+                        class="list-group-item"
+                        ng-repeat="todo in vm.todos | filter: vm.searchFilter as filteredTodo"
+                        ng-class="{'done': todo.done}"
+                    >
+                        <span>{{todo.name}}</span>
+                        <div class="actions">
+                            <span
+                                ng-if="!todo.done"
+                                ng-click="vm.markAsDone(todo)"
+                                class="glyphicon glyphicon-ok"
+                            ></span>
+                            <span
+                                class="glyphicon glyphicon-remove"
+                                ng-click="vm.removeTodo(todo)"
+                            ></span>
+                        </div>
+                    </li>
+                    <li class="list-group-item no-todos">
+                        (no todos)
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
